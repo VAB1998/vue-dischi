@@ -1,8 +1,10 @@
 <template>
     <section id="albums">
         <div class="container">
-            <Album  v-for="(item, index) in albumList" :key="index"/>
-            
+            <div class="row row-cols-5">
+                <Album  v-for="(item, index) in albumList" :key="index"
+                :imageSource="item.poster" :albumTitle="item.title" :author="item.author" :year="item.year" />
+            </div>
         </div>
     </section>
 </template>
