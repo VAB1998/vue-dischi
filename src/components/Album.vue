@@ -2,13 +2,15 @@
 
         
         <div  class="col text-center">
-            <div class="album p-2 h-100">
+            <div class="album card p-3 h-100">
 
-                <img class="w-100" :src="imageSource" :alt="author">
-                <h2 class="albumTitle"> {{albumTitle}} </h2>
-                <span class="author"> {{author}} </span>
-                <span class="year"> {{year}} </span>
-
+                <img class="card-img-top" :src="imageSource" :alt="author">
+                <div class="card-body pb-0">
+                    <h4 class="albumTitle"> {{albumTitle}} </h4>
+                    <span class="author"> {{author}} </span>
+                    <span class="year"> {{year}} </span>
+                    <a class="stretched-link" href="#"></a>
+                </div>
             </div>
         </div>
 
@@ -41,6 +43,7 @@ export default {
     .year{
         display: block;
         color: $secondary_color_text;
+        font-family: $secondary_font;
     }
 
     
