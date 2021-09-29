@@ -51,6 +51,6 @@ export default {
 @import '../style/variables.scss';
 
 #albums{
-    margin-top: 100px;
+    margin: 100px 0 100px 0;
 }
 </style>

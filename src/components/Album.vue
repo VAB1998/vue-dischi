@@ -5,7 +5,7 @@
             <div class="album card p-3 h-100">
 
                 <img class="card-img-top" :src="imageSource" :alt="author">
-                <div class="card-body pb-0">
+                <div class="card-body pb-0  px-0">
                     <h4 class="albumTitle"> {{albumTitle}} </h4>
                     <span class="author"> {{author}} </span>
                     <span class="year"> {{year}} </span>
@@ -35,10 +35,12 @@ export default {
 
 .album{
     background-color: $main_color;
+    transition: .3s linear;
 
     .albumTitle{
         color: $main_color_text;
-    }    
+    }  
+
     .author,
     .year{
         display: block;
@@ -46,7 +48,9 @@ export default {
         font-family: $secondary_font;
     }
 
-    
+    &:hover{
+        background-color: darken($main_color, 2%)
+    }
 }
 
 </style>
