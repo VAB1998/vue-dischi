@@ -1,7 +1,7 @@
 <template>
     <section id="albums">
         <div class="container">
-            <div class="row row-cols-5">
+            <div class="g-5 row row-cols-2 row-cols-md-3 row-cols-lg-5">
                 <Album  v-for="(item, index) in albumList" :key="index"
                 :imageSource="item.poster" :albumTitle="item.title" :author="item.author" :year="item.year" />
             </div>
@@ -50,5 +50,7 @@ export default {
 @import '../style/general.scss';
 @import '../style/variables.scss';
 
-
+#albums{
+    margin-top: 100px;
+}
 </style>

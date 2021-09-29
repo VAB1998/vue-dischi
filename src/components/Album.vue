@@ -1,11 +1,15 @@
 <template>
 
         
-        <div  class="album col">
-            <img class="w-100" :src="imageSource" :alt="author">
-            <h2> {{albumTitle}} </h2>
-            <span> {{author}} </span>
-            <span> {{year}} </span>
+        <div  class="col text-center">
+            <div class="album p-2 h-100">
+
+                <img class="w-100" :src="imageSource" :alt="author">
+                <h2 class="albumTitle"> {{albumTitle}} </h2>
+                <span class="author"> {{author}} </span>
+                <span class="year"> {{year}} </span>
+
+            </div>
         </div>
 
         
@@ -27,5 +31,19 @@ export default {
 @import '../style/general.scss';
 @import '../style/variables.scss';
 
+.album{
+    background-color: $main_color;
+
+    .albumTitle{
+        color: $main_color_text;
+    }    
+    .author,
+    .year{
+        display: block;
+        color: $secondary_color_text;
+    }
+
+    
+}
 
 </style>
