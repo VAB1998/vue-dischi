@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 class="text-success">Ciao</h1>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
   }
 }
 </script>
 
 <style lang="scss">
+@import '~bootstrap/scss/bootstrap';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  
 }
 </style>
+
+// Create un nuovo progetto utilizzando Vue CLI
+// Definite i componenti necessari per strutturare il layout come da screenshot allegato.
+// Al caricamento della pagina, effettuate una chiama ajax all'API di boolean: https://flynn.boolean.careers/exercises/api/array/music
+// E con i dati restituiti, stampate una card per ogni disco musicale.
