@@ -2,6 +2,7 @@
     <section id="albums">
         <div class="container">
             <Album />
+            <h1>{{title}}</h1>
         </div>
     </section>
 </template>
@@ -19,6 +20,9 @@ export default {
     data : function(){
         return{
 
+            albumList : []
+
+
         }
     },
 
@@ -26,6 +30,10 @@ export default {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((object) =>{
             console.clear()
+
+            this.albumList =  object.data.response.slice()
+            
+            //Check
             console.log(object)
             console.log(object.data)
             console.log(object.data.response)
