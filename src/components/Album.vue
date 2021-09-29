@@ -1,6 +1,5 @@
 <template>
 
-        
         <div  class="col text-center">
             <div class="album card p-3 h-100">
 
@@ -13,8 +12,6 @@
                 </div>
             </div>
         </div>
-
-        
 
 </template>
 
