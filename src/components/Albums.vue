@@ -1,17 +1,19 @@
 <template>
     <section id="albums">
         <div class="container">
-            <div class="row row-cols-5">
-                <div id="prova" class="col"></div>
-                
-            </div>
+            <Album />
         </div>
     </section>
 </template>
 
 <script>
-export default {
+import Album from './Album.vue'
 
+export default {
+    name: 'Albums',
+    components: {
+        Album
+    }
 }
 </script>
 
@@ -19,9 +21,5 @@ export default {
 @import '../style/general.scss';
 @import '../style/variables.scss';
 
-#prova{
-    background-color: red;
-    height: 100px;
-    border: 2px solid black;
-}
+
 </style>
