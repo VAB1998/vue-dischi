@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <h1 class="text-success">Ciao</h1>
+    <Albums />
   </div>
 </template>
 
 <script>
+import Albums from './components/Albums.vue'
 
 export default {
   name: 'App',
   components: {
+    Albums
   }
 }
 </script>
