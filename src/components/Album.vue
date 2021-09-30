@@ -1,17 +1,18 @@
 <template>
 
-        <div  class="col text-center">
-            <div class="album card p-3 h-100">
+    <div  class="col text-center">
+        <div class="album card p-3 h-100">
 
-                <img class="card-img-top" :src="imageSource" :alt="author">
-                <div class="card-body pb-0  px-0">
-                    <h4 class="albumTitle"> {{albumTitle}} </h4>
-                    <span class="author"> {{author}} </span>
-                    <span class="year"> {{year}} </span>
-                    <a class="stretched-link" href="#"></a>
-                </div>
+            <img class="card-img-top" :src="imageSource" :alt="author">
+            <div class="card-body pb-0  px-0">
+                <h4 class="albumTitle"> {{albumTitle}} </h4>
+                <span class="author"> {{author}} </span>
+                <span class="year"> {{year}} </span>
+                <a class="stretched-link" href="#"></a>
             </div>
+
         </div>
+    </div>
 
 </template>
 
@@ -46,7 +47,7 @@ export default {
     }
 
     &:hover{
-        background-color: darken($main_color, 2%)
+        background-color: darken($main_color, 3%)
     }
 }
 
