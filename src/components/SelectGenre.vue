@@ -31,5 +31,7 @@ props : {
     font-size: 1.5rem;
     // Spacing and Dimensions
     width: 40%;
+    //Other Settings
+    cursor: pointer;
 }
 </style>

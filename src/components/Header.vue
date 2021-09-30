@@ -1,8 +1,8 @@
 <template>
     <header>
-        <div class="row">
-            <div class="col-12">
-                
+        <div class="row h-100">
+            <div class="col-12 h-100 d-flex align-items-center">
+                <img class="h-75 ps-3" src="../assets/logo-small.svg" alt="Spotify logo">
             </div>
         </div>
     </header>
@@ -21,5 +21,6 @@ export default {
 header{
     height: 60px;
     background-color: $main_color;
+
 }
 </style>

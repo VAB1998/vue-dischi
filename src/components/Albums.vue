@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-12 text-center">
-                    <SelectGenre  @selectGenre="select"  :genreList="genreList" />  <!---->
+                    <SelectGenre  @selectGenre="select"  :genreList="genreList" /> 
                 </div>
             </div>
             <div class="g-5 row row-cols-2 row-cols-md-3 row-cols-lg-4">
@@ -48,7 +48,6 @@ export default {
                 if (!this.genreList.includes(item.genre)){
 
                     this.genreList.push(item.genre);
-                
                 }
             })
         },
@@ -59,15 +58,13 @@ export default {
          */
         select(genreItem){
 
-            
-
             if (genreItem.trim().toLowerCase() === 'all'){
             this.filteredAlbumList = this.albumList.slice();
             } else{
                 this.filteredAlbumList = this.albumList.filter((item) => item.genre.trim().toLowerCase() == genreItem.trim().toLowerCase());
             }
 
-            //Check
+            //Checks
             console.clear()
             console.log('Selected Genre: ', genreItem)
             console.log('Filtered Album Luist:', this.filteredAlbumList)
@@ -77,6 +74,7 @@ export default {
     },
 
     created : function() {
+        //Make HTTP  GET Request to an API
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((object) =>{
             console.clear()
@@ -84,6 +82,7 @@ export default {
             this.albumList =  object.data.response.slice()
 
             this.getUniquePropertyValues()
+            //Load the page with a "default" genreItem='all' 
             this.select('all')
             //Check
             console.log('API Datas Response:', object.data.response)
