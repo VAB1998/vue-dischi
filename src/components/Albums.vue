@@ -6,7 +6,7 @@
                     <SelectGenre  @selectGenre="select"  :genreList="genreList" />  <!---->
                 </div>
             </div>
-            <div class="g-5 row row-cols-2 row-cols-md-3 row-cols-lg-5">
+            <div class="g-5 row row-cols-2 row-cols-md-3 row-cols-lg-4">
                 <Album  v-for="(item, index) in filteredAlbumList" :key="index"
                 :imageSource="item.poster" :albumTitle="item.title" :author="item.author" :year="item.year" />
             </div>
@@ -37,6 +37,10 @@ export default {
     },
 
     methods : {
+
+        /**
+         * Pushes the items in an array that are not already in it.
+         */
         getUniquePropertyValues(){
 
             this.albumList.forEach((item) =>{
@@ -49,20 +53,24 @@ export default {
             })
         },
 
-
+        /**
+         * Selects the objects of the albumList array depending on the given genre
+         * @param {string} genreItem The selected genre
+         */
         select(genreItem){
-            //Chech
-            console.log('Selected Genre: ', genreItem)
+
+            
 
             if (genreItem.trim().toLowerCase() === 'all'){
             this.filteredAlbumList = this.albumList.slice();
-            
             } else{
-
-                this.filteredAlbumList = this.albumList.filter((item) => item.genre == genreItem);
+                this.filteredAlbumList = this.albumList.filter((item) => item.genre.trim().toLowerCase() == genreItem.trim().toLowerCase());
             }
 
-            console.log(this.filteredAlbumList)
+            //Check
+            console.clear()
+            console.log('Selected Genre: ', genreItem)
+            console.log('Filtered Album Luist:', this.filteredAlbumList)
         }
         
 
@@ -78,11 +86,8 @@ export default {
             this.getUniquePropertyValues()
             this.select('all')
             //Check
-            console.log(object)
-            console.log(object.data)
-            console.log(object.data.response)
-            console.log(object.data.response[0])
-            console.log(object.data.response[0].author)
+            console.log('API Datas Response:', object.data.response)
+
         });
     },
 
