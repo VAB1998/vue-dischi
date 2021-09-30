@@ -1,7 +1,9 @@
 <template>
-    <select name="select_genre">
-        <option value="all">All</option>
-        <option :value="genreList"></option>
+    <select name="select_genre"> <!-- oppure v-on:change="passa il valore della select" -->
+        <option value="all"  v-on:click="$emit('selectGenre', 'all')">All</option>
+
+        <option v-for="(genreItem, index) in genreList" :key="index" 
+        v-on:click="$emit('selectGenre', genreItem)" :value="genreItem"> {{genreItem}} </option>
     </select>
 </template>
 

@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-12 text-center">
-                    <SelectGenre  :genreList="genreList" />
+                    <SelectGenre  @selectGenre="select"  :genreList="genreList" />  <!---->
                 </div>
             </div>
             <div class="g-5 row row-cols-2 row-cols-md-3 row-cols-lg-5">
-                <Album  v-for="(item, index) in albumList" :key="index"
+                <Album  v-for="(item, index) in filteredAlbumList" :key="index"
                 :imageSource="item.poster" :albumTitle="item.title" :author="item.author" :year="item.year" />
             </div>
         </div>
@@ -30,7 +30,8 @@ export default {
         return{
 
             albumList : [],
-            genreList : []
+            genreList : [],
+            filteredAlbumList : [],
 
         }
     },
@@ -39,19 +40,29 @@ export default {
         getUniquePropertyValues(){
 
             this.albumList.forEach((item) =>{
-                console.log(item.genre)
-            })
-            // this.albumList.forEach((item) => !this.genreList.includes(item.genre) ? this.genreList.push(item.genre) : '');
+
+                if (!this.genreList.includes(item.genre)){
+
+                    this.genreList.push(item.genre);
                 
+                }
+            })
+        },
 
 
-            // for(item of this.albumList){
+        select(genreItem){
+            //Chech
+            console.log('Selected Genre: ', genreItem)
 
-            //     if (!this.genreList.includes(item.genre)){
+            if (genreItem.trim().toLowerCase() === 'all'){
+            this.filteredAlbumList = this.albumList.slice();
+            
+            } else{
 
-            //     this.genreList.push(item.genre);
-            //     }
-            // }
+                this.filteredAlbumList = this.albumList.filter((item) => item.genre == genreItem);
+            }
+
+            console.log(this.filteredAlbumList)
         }
         
 
@@ -60,23 +71,22 @@ export default {
     created : function() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((object) =>{
-            // console.clear()
+            console.clear()
             //Take the Datas from the API and put them into the array (using slice)
             this.albumList =  object.data.response.slice()
-            
-            //Check
-            // console.log(object)
-            // console.log(object.data)
-            // console.log(object.data.response)
-            // console.log(object.data.response[0])
-            // console.log(object.data.response[0].author)
-        });
 
-        
+            this.getUniquePropertyValues()
+            this.select('all')
+            //Check
+            console.log(object)
+            console.log(object.data)
+            console.log(object.data.response)
+            console.log(object.data.response[0])
+            console.log(object.data.response[0].author)
+        });
     },
 
-    mounted(){
-        this.getUniquePropertyValues()
+    computed: function(){
     }
 
 }
