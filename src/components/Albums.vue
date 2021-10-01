@@ -30,7 +30,7 @@ export default {
         return{
 
             albumList : [],
-            genreList : [],
+            genreList : ['All'],
             filteredAlbumList : [],
 
         }
@@ -86,7 +86,6 @@ export default {
             this.select('all')
             //Check
             console.log('API Datas Response:', object.data.response)
-
         });
     },
 
