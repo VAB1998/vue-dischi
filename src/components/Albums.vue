@@ -43,13 +43,12 @@ export default {
          */
         getUniquePropertyValues(){
 
-            this.albumList.forEach((item) =>{
-
+            for(let item of this.albumList){
                 if (!this.genreList.includes(item.genre)){
 
                     this.genreList.push(item.genre);
                 }
-            })
+            }
         },
 
         /**
